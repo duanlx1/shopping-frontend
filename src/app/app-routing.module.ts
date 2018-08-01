@@ -5,10 +5,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routConfig: Routes = [
-    {path: 'cosmetic/list', component: ListComponent},
-    {path: 'cosmetic/detail', component: DetailComponent},
-    {path: '', redirectTo: 'cosmetic/list', pathMatch: 'full'},
-    {path: '**', redirectTo: 'cosmetic/list', pathMatch: 'full'}
+    { path: 'cosmetic/list', component: ListComponent },
+    { path: 'cosmetic/detail', component: DetailComponent },
+    { path: '', redirectTo: 'cosmetic/list', pathMatch: 'full' },
+    { path: '**', redirectTo: 'cosmetic/list', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -20,4 +20,4 @@ const routConfig: Routes = [
     exports: [RouterModule]
 })
 
-export class AppRouterModule {}
+export class AppRouterModule { }
