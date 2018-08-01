@@ -1,9 +1,9 @@
 import { DetailComponent } from './cosmetic/detail/detail.component';
 import { ListComponent } from './cosmetic/list/list.component';
 
-import { RouterModule, Routes } from '@angular/router';
-import { NgModel } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
 const routConfig: Routes = [
     {path: 'cosmetic/list', component: ListComponent},
     {path: 'cosmetic/detail', component: DetailComponent},
