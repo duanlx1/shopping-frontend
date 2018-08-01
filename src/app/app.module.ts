@@ -1,3 +1,4 @@
+import { AppRouterModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -11,10 +12,12 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    AppRouterModule,
     MDBBootstrapModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
