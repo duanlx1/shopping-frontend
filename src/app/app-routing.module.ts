@@ -19,5 +19,4 @@ const routConfig: Routes = [
     ],
     exports: [RouterModule]
 })
-
 export class AppRouterModule { }
