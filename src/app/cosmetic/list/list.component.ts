@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
-import { Observable } from 'rxjs';
+import { AngularFireDatabase } from 'angularfire2/database';
+import 'rxjs';
 import { Product } from '../../common/object/product';
-import { forEach } from '../../../../node_modules/@angular/router/src/utils/collection';
 
 
 @Component({
@@ -13,25 +12,17 @@ import { forEach } from '../../../../node_modules/@angular/router/src/utils/coll
 })
 export class ListComponent implements OnInit {
 
-  products: Array<[]>;
-  constructor(private db: AngularFireDatabase) { }
-
-  ngOnInit() {
-    this.db.list('products').valueChanges().subscribe(products => {
+  products: Product[];
+  constructor(private db: AngularFireDatabase) {
+    db.list('products').valueChanges().subscribe(a => {
+      this.products = a as Product[];
+      // console.log(this.products);
       
-    });
-
-    // this.db.list('products').
-
-    // console.log(this.products);
-    
-    
-    
-    
+    })
   }
 
-  // getproducts(path): Observable<any[]> {
-  //   return this.db.list(path).valueChanges();
-  // }
+  ngOnInit() {
+
+  }
 
 }

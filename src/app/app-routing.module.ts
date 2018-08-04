@@ -3,6 +3,8 @@ import { ListComponent } from './cosmetic/list/list.component';
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 
 const routConfig: Routes = [
     { path: 'cosmetic/list', component: ListComponent },
@@ -12,7 +14,10 @@ const routConfig: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routConfig)],
+    imports: [
+        CommonModule,
+        RouterModule.forRoot(routConfig)
+    ],
     declarations: [
         ListComponent,
         DetailComponent
