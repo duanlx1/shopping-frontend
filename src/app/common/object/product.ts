@@ -3,5 +3,5 @@ export class Product {
     productId : string;
     imagePath: {frontImage:string, backImage: string};
     name : string;
-    price : string;
+    price : number;
 }
