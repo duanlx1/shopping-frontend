@@ -1,0 +1,145 @@
+{
+	"Categories":[
+		{
+			
+			"categoryID": 1,
+			"categoryName": "category Name"
+		},
+		{
+			"categoryID": 2,
+			"categoryName": "category Name 2"
+		}
+	],
+	"Products":[
+		{
+			"productID": 1,
+			"categoryID": 1
+			"productName": "Product Name",
+			"productDescription": "Product Description",
+			"quantityPerUnit": 30,
+			"unitSize": "30ml",
+			"unitPrice": 200000,
+			"originalPrice": 150000,
+			"discount": 20,
+			"unitsInStock": 20,
+			"unitsOnOrder": 10,
+			"discountAvailable": "yes",
+			"picture": "d://img.jpg",
+			"ranking": 1,
+			"note": "Sản phẩm hết hàng"
+		},
+		{
+			"productID": 2,
+			"categoryID": 1
+			"productName": "Product Name 2",
+			"productDescription": "Product Description",
+			"quantityPerUnit": 30,
+			"unitSize": "30ml",
+			"unitPrice": 200000,
+			"originalPrice": 150000,
+			"discount": 20,
+			"unitsInStock": 20,
+			"unitsOnOrder": 10,
+			"discountAvailable": "yes",
+			"picture": "d://img.jpg",
+			"ranking": 1,
+			"note": "Sản phẩm hết hàng"
+		}
+	],
+	"Orders":[
+		{
+			
+			"orderID": 1,
+			"customerID": 1,
+			"paymentID": 1,
+			"orderDate": "2018/08/01",
+			"shipDate": "2018/08/01",
+			"freightFee": 10000,
+			"totalPayment": 200000
+			"paymentDate": "2018/08/01"
+			
+		},
+		{
+			"orderID": 2,
+			"customerID": 2,
+			"paymentID": 2,
+			"orderDate": "2018/08/01",
+			"shipDate": "2018/08/01",
+			"freightFee": 10000,
+			"totalPayment": 200000
+			"paymentDate": "2018/08/01"
+			
+		}
+	],
+	"OrderDetails":[
+		{
+			
+			"orderDetailID": 1,
+			"orderID": 1,
+			"productID": 1,
+			"price": 200000,
+			"quantity": 2,
+			"discount": 10,
+			"total": 400000
+		},
+		{
+			
+			"orderDetailID": 1,
+			"orderID": 1,
+			"productID": 1,
+			"price": 200000,
+			"quantity": 2,
+			"discount": 10,
+			"total": 400000
+		}
+	],
+	"Customers":[
+		{
+			"customerID": 1,
+			"fullName": "Nguyễn văn a",
+			"address": "Đô đốc lộc",
+			"ward": "Hòa Xuân",
+			"district": "Cẩm lệ",
+			"city": "Đà nẵng",
+			"phone": "01269768576",
+			"email": "xuanduan1905@gmail.com",
+			"password": "haydenbenem",
+			"shipAddress": "Đô đốc lộc",
+			"shipWard": "Hòa Xuân",
+			"shipDistrict": "Cẩm lệ",
+			"shipCity": "Đà nẵng"
+		},
+		{
+			"customerID": 1,
+			"fullName": "Nguyễn văn a",
+			"address": "Đô đốc lộc",
+			"ward": "Hòa Xuân",
+			"district": "Cẩm lệ",
+			"city": "Đà nẵng",
+			"phone": "01269768576",
+			"email": "xuanduan1905@gmail.com",
+			"password": "haydenbenem",
+			"shipAddress": "Đô đốc lộc",
+			"shipWard": "Hòa Xuân",
+			"shipDistrict": "Cẩm lệ",
+			"shipCity": "Đà nẵng"
+		}
+	],
+	"Payment":[
+		{
+			"paymentID": 1,
+			"paymentType": "Thanh Toán lúc nhận hàng",
+			"allow": "yes"
+		},
+		{
+			"paymentID": 2,
+			"paymentType": "Credit card",
+			"allow": "yes"
+		},
+		{
+			"paymentID": 3,
+			"paymentType": "ATM",
+			"allow": "yes"
+		}
+	]
+}
