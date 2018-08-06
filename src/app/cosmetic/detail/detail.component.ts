@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CosmeticService } from '../cosmetic.service';
+import { Product } from '../../common/object/product';
 
 @Component({
   selector: 'app-detail',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cosmeticService: CosmeticService) { }
+
+  product = new Product();
 
   ngOnInit() {
   }
+
+  // getproductById(id: string) {
+  //   this.cosmeticService.getProductById(id).subscribe(product => {
+  //     this.product = product;
+  //   }); 
+  // }
 
 }

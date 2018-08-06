@@ -13,7 +13,7 @@
 	"Products":[
 		{
 			"productID": 1,
-			"categoryID": 1
+			"categoryID": 1,
 			"productName": "Product Name",
 			"productDescription": "Product Description",
 			"quantityPerUnit": 30,
@@ -30,7 +30,7 @@
 		},
 		{
 			"productID": 2,
-			"categoryID": 1
+			"categoryID": 1,
 			"productName": "Product Name 2",
 			"productDescription": "Product Description",
 			"quantityPerUnit": 30,
@@ -55,7 +55,7 @@
 			"orderDate": "2018/08/01",
 			"shipDate": "2018/08/01",
 			"freightFee": 10000,
-			"totalPayment": 200000
+			"totalPayment": 200000,
 			"paymentDate": "2018/08/01"
 			
 		},
@@ -66,7 +66,7 @@
 			"orderDate": "2018/08/01",
 			"shipDate": "2018/08/01",
 			"freightFee": 10000,
-			"totalPayment": 200000
+			"totalPayment": 200000,
 			"paymentDate": "2018/08/01"
 			
 		}

@@ -6,7 +6,10 @@
                 <li>
                     <a href="#">Home</a>
                 </li>
-                <li>Ladies</li>
+                <li>
+                    <a href="#">Cosmetics</a>
+                </li>
+                <li *ngIf="category != ''">{{category}}</li>
             </ul>
         </div>
 
@@ -21,8 +24,8 @@
 
                 <div class="panel-body">
                     <ul class="nav nav-pills nav-stacked category-menu">
-                        <li *ngFor="let category of categories" >
-                            <a (click)="filterByCategory('categoryId', category.categoryId)" href="javascrip:void(0);">{{category.categoryName}}
+                        <li *ngFor="let category of categories">
+                            <a (click)="getProductsByCategory(category.categoryId)" href="javascrip:void(0);">{{category.categoryName}}
                                 <span class="badge pull-right">42</span>
                             </a>
                             <!-- <ul>
@@ -152,10 +155,10 @@
         </div>
 
         <div class="col-md-9">
-            <div class="box">
-                <h1>Ladies</h1>
-                <p>In our Ladies department we offer wide selection of the best products we have found and carefully selected
-                    worldwide.
+            <div class="box" *ngIf="category != ''">
+                <h1>{{category}}</h1>
+                <p>In our Ladies department we offer wide selection of the best products
+                    we have found and carefully selected worldwide.
                 </p>
             </div>
 
@@ -195,30 +198,30 @@
             </div>
 
             <div class="row products">
-                <div class="col-md-4 col-sm-6" *ngFor="let product of productsFiltered">
+                <div class="col-md-4 col-sm-6" *ngFor="let product of products">
                     <div class="product">
                         <div class="flip-container">
                             <div class="flipper">
                                 <div class="front">
                                     <a href="detail.html">
-                                        <img src="{{product.frontImage}}" alt="" class="img-responsive">
+                                        <img src="{{product.frontPicture}}" alt="" class="img-responsive">
                                     </a>
                                 </div>
                                 <div class="back">
                                     <a href="detail.html">
-                                        <img src="{{product.backImage}}" alt="" class="img-responsive">
+                                        <img src="{{product.backPicture}}" alt="" class="img-responsive">
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <a href="detail.html" class="invisible">
-                            <img src="{{product.frontImage}}" alt="" class="img-responsive">
+                            <img src="{{product.frontPicture}}" alt="" class="img-responsive">
                         </a>
                         <div class="text">
                             <h3>
-                                <a href="detail.html">{{product.name}}</a>
+                                <a href="detail.html">{{product.productName}}</a>
                             </h3>
-                            <p class="price">{{product.price | currency:'VND':'symbol':'0.0-0'}}</p>
+                            <p class="price">{{product.unitPrice | currency:'VND':'symbol':'0.0-0'}}</p>
                             <p class="buttons">
                                 <a href="detail.html" class="btn btn-default">View detail</a>
                                 <a href="basket.html" class="btn btn-primary">
