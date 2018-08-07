@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { Product } from '../common/object/product';
 import 'rxjs';
+import { Brand } from '../common/object/Brand';
 @Injectable()
 export class CosmeticService {
     private apiPath = 'https://api.mlab.com/api/1/databases/cosmetic/';
@@ -23,13 +24,21 @@ export class CosmeticService {
      * Get product by category
      * @param categoryId category
      */
-    getProducts(categoryId: string, sortKey: string, sortValue: string): Promise<Product[]> {
+    getProducts(categoryId: string, sortKey: string, sortValue: string, brands: string[]): Promise<Product[]> {
 
         // s={"priority": 1, "difficulty": -1}
         const collectionsPath = this.apiPath + 'collections/Products';
         let query = '';
         if (categoryId !== '') {
             query = query.concat('{categoryId:' + categoryId + '}');
+        }
+
+        // {brandId:{$in:[1,3]}}
+        if (brands.length > 0) {
+            // brands.forEach(element => {
+                
+            // });
+            query = query.concat('{brandId:{$in:' + brands + ']}');
         }
 
         if (sortKey !== '' || sortValue !== '') {
@@ -56,6 +65,18 @@ export class CosmeticService {
         return this.http.get(collectionsPath + '?' + this.apiKey)
             .toPromise()
             .then(res => res.json() as Category[])
+            .catch(this.handleError);
+    }
+
+    /**
+     * Get all brands for left menu.
+     */
+    getBrands(): Promise<Brand[]> {
+        const collectionsPath = this.apiPath + 'collections/Brands';
+
+        return this.http.get(collectionsPath + '?' + this.apiKey)
+            .toPromise()
+            .then(res => res.json() as Brand[])
             .catch(this.handleError);
     }
 

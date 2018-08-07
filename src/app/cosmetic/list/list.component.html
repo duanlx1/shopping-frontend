@@ -24,24 +24,16 @@
 
         <div class="panel-body">
           <ul class="nav nav-pills nav-stacked category-menu">
-            <li *ngFor="let category of categories">
-              <a (click)="setCategory(category.categoryId, category.categoryName)" href="javascrip:void(0);">{{category.categoryName}}
+            <li>
+              <a href="javascrip:void(0);">
+                LADIES
                 <span class="badge pull-right">42</span>
               </a>
-              <!-- <ul>
-                                <li>
-                                    <a href="category.html">T-shirts</a>
-                                </li>
-                                <li>
-                                    <a href="category.html">Shirts</a>
-                                </li>
-                                <li>
-                                    <a href="category.html">Pants</a>
-                                </li>
-                                <li>
-                                    <a href="category.html">Accessories</a>
-                                </li>
-                            </ul> -->
+              <ul *ngFor="let category of categories">
+                <li>
+                  <a href="javascrip:void(0);" (click)="setCategory(category.categoryId, category.categoryName)">{{category.categoryName}}</a>
+                </li>
+              </ul>
             </li>
 
           </ul>
@@ -61,25 +53,10 @@
         <div class="panel-body">
 
           <form>
-            <div class="form-group">
+            <div class="form-group" *ngFor="let brand of brands" >
               <div class="checkbox">
                 <label>
-                  <input type="checkbox">Armani (10)
-                </label>
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox">Versace (12)
-                </label>
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox">Carlo Bruni (15)
-                </label>
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox">Jack Honey (14)
+                  <input type="checkbox" [value]="brand.brandId"/>{{brand.brandName}}
                 </label>
               </div>
             </div>
@@ -131,7 +108,8 @@
     <div class="col-md-9">
       <div class="box" *ngIf="categoryName != ''">
         <h1>{{categoryName}}</h1>
-        <p>In our Ladies department we offer wide selection of the best products we have found and carefully selected worldwide.
+        <p>In our Ladies department we offer wide selection of the best products we
+          have found and carefully selected worldwide.
         </p>
       </div>
 
@@ -149,9 +127,12 @@
                 <div class="col-md-6 col-sm-6">
                   <div class="products-number">
                     <strong>Show</strong>
-                    <a href="javascript:void(0)" [class.btn-primary]="itemsPerPage === 12" class="btn btn-default btn-sm" (click)="setProductsNumber(12)">12</a>
-                    <a href="javascript:void(0)" [class.btn-primary]="itemsPerPage === 24" class="btn btn-default btn-sm" (click)="setProductsNumber(24)">24</a>
-                    <a href="javascript:void(0)" [class.btn-primary]="itemsPerPage === products.length" class="btn btn-default btn-sm" (click)="setProductsNumber(products.length)">All</a> products
+                    <a href="javascript:void(0)" [class.btn-primary]="itemsPerPage === 12" class="btn btn-default btn-sm"
+                      (click)="setProductsNumber(12)">12</a>
+                    <a href="javascript:void(0)" [class.btn-primary]="itemsPerPage === 24" class="btn btn-default btn-sm"
+                      (click)="setProductsNumber(24)">24</a>
+                    <a href="javascript:void(0)" [class.btn-primary]="itemsPerPage === products.length"
+                      class="btn btn-default btn-sm" (click)="setProductsNumber(products.length)">All</a> products
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-6">

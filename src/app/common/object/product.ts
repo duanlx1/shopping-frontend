@@ -1,6 +1,7 @@
 export class Product {
     productId: number;
     categoryId: number;
+    brandId: number;
     productName: string;
     productDescription: string;
     quantityPerUnit: number;
