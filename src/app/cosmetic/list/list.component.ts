@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import 'rxjs';
 import { Product } from '../../common/object/product';
 import { CosmeticService } from '../cosmetic.service';
-import { Category } from '../../common/object/catogory';
+import { Category } from '../../common/object/category';
 
 
 @Component({
@@ -61,6 +61,6 @@ export class ListComponent implements OnInit {
     this.sortKey = e.srcElement.value;
     this.sortValue = '1';
     this.getProductsByCategory();
-  }
+  } 
 
 }

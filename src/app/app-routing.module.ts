@@ -7,8 +7,9 @@ import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 const routConfig: Routes = [
+    
     { path: 'cosmetic/list', component: ListComponent },
-    { path: 'cosmetic/detail', component: DetailComponent },
+    { path: 'cosmetic/detail/:id', component: DetailComponent },
     { path: '', redirectTo: 'cosmetic/list', pathMatch: 'full' },
     { path: '**', redirectTo: 'cosmetic/list', pathMatch: 'full' }
 ];

@@ -176,27 +176,27 @@
             <div class="flip-container">
               <div class="flipper">
                 <div class="front">
-                  <a href="detail.html">
+                  <a href="cosmetic/detail/{{product._id.$oid}}">
                     <img src="{{product.frontPicture}}" alt="" class="img-responsive">
                   </a>
                 </div>
                 <div class="back">
-                  <a href="detail.html">
+                  <a href="cosmetic/detail/{{product._id.$oid}}">
                     <img src="{{product.backPicture}}" alt="" class="img-responsive">
                   </a>
                 </div>
               </div>
             </div>
-            <a href="detail.html" class="invisible">
+            <a href="cosmetic/detail/{{product._id.$oid}}" class="invisible">
               <img src="{{product.frontPicture}}" alt="" class="img-responsive">
             </a>
             <div class="text">
               <h3>
-                <a href="detail.html">{{product.productName}}</a>
+                <a href="cosmetic/detail/{{product._id.$oid}}">{{product.productName}}</a>
               </h3>
               <p class="price">{{product.unitPrice | currency:'VND':'symbol':'0.0-0'}}</p>
               <p class="buttons">
-                <a href="detail.html" class="btn btn-default">View detail</a>
+                <a href="cosmetic/detail/{{product._id.$oid}}" class="btn btn-default">View detail</a>
                 <a href="basket.html" class="btn btn-primary">
                   <i class="fa fa-shopping-cart"></i>Add to cart</a>
               </p>

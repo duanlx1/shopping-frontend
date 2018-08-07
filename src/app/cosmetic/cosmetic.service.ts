@@ -1,4 +1,4 @@
-import { Category } from './../common/object/catogory';
+import { Category } from './../common/object/category';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { Product } from '../common/object/product';
@@ -67,7 +67,7 @@ export class CosmeticService {
         const collectionsPath = this.apiPath + 'collections/Products/' + id + '?' + this.apiKey;
         return this.http.get(collectionsPath)
             .toPromise()
-            .then(res => res.json() as Product[])
+            .then(res => res.json() as Product)
             .catch(this.handleError);
     }
 

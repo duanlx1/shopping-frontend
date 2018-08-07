@@ -1,4 +1,5 @@
 export class Product {
+    _id : any;
     productId: number;
     categoryId: number;
     productName: string;
