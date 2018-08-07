@@ -1,34 +1,34 @@
 <div id="content">
-    <div class="container">
+  <div class="container">
 
-        <div class="col-md-12">
-            <ul class="breadcrumb">
-                <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#">Cosmetics</a>
-                </li>
-                <li *ngIf="category != ''">{{category}}</li>
-            </ul>
+    <div class="col-md-12">
+      <ul class="breadcrumb">
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="cosmetic/list">Cosmetics</a>
+        </li>
+        <li *ngIf="categoryName !== ''">{{categoryName}}</li>
+      </ul>
+    </div>
+
+    <div class="col-md-3">
+      <!-- *** MENUS AND FILTERS ***
+ _________________________________________________________ -->
+      <div class="panel panel-default sidebar-menu">
+
+        <div class="panel-heading">
+          <h3 class="panel-title">Categories</h3>
         </div>
 
-        <div class="col-md-3">
-            <!-- *** MENUS AND FILTERS ***
- _________________________________________________________ -->
-            <div class="panel panel-default sidebar-menu">
-
-                <div class="panel-heading">
-                    <h3 class="panel-title">Categories</h3>
-                </div>
-
-                <div class="panel-body">
-                    <ul class="nav nav-pills nav-stacked category-menu">
-                        <li *ngFor="let category of categories">
-                            <a (click)="getProductsByCategory(category.categoryId)" href="javascrip:void(0);">{{category.categoryName}}
-                                <span class="badge pull-right">42</span>
-                            </a>
-                            <!-- <ul>
+        <div class="panel-body">
+          <ul class="nav nav-pills nav-stacked category-menu">
+            <li *ngFor="let category of categories">
+              <a (click)="setCategory(category.categoryId, category.categoryName)" href="javascrip:void(0);">{{category.categoryName}}
+                <span class="badge pull-right">42</span>
+              </a>
+              <!-- <ul>
                                 <li>
                                     <a href="category.html">T-shirts</a>
                                 </li>
@@ -42,236 +42,187 @@
                                     <a href="category.html">Accessories</a>
                                 </li>
                             </ul> -->
-                        </li>
+            </li>
 
-                    </ul>
+          </ul>
 
-                </div>
-            </div>
+        </div>
+      </div>
 
-            <div class="panel panel-default sidebar-menu">
+      <div class="panel panel-default sidebar-menu">
 
-                <div class="panel-heading">
-                    <h3 class="panel-title">Brands
-                        <a class="btn btn-xs btn-danger pull-right" href="#">
-                            <i class="fa fa-times-circle"></i> Clear</a>
-                    </h3>
-                </div>
-
-                <div class="panel-body">
-
-                    <form>
-                        <div class="form-group">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">Armani (10)
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">Versace (12)
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">Carlo Bruni (15)
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">Jack Honey (14)
-                                </label>
-                            </div>
-                        </div>
-
-                        <button class="btn btn-default btn-sm btn-primary">
-                            <i class="fa fa-pencil"></i> Apply</button>
-
-                    </form>
-
-                </div>
-            </div>
-
-            <div class="panel panel-default sidebar-menu">
-
-                <div class="panel-heading">
-                    <h3 class="panel-title">Colours
-                        <a class="btn btn-xs btn-danger pull-right" href="#">
-                            <i class="fa fa-times-circle"></i> Clear</a>
-                    </h3>
-                </div>
-
-                <div class="panel-body">
-
-                    <form>
-                        <div class="form-group">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">
-                                    <span class="colour white"></span> White (14)
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">
-                                    <span class="colour blue"></span> Blue (10)
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">
-                                    <span class="colour green"></span> Green (20)
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">
-                                    <span class="colour yellow"></span> Yellow (13)
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">
-                                    <span class="colour red"></span> Red (10)
-                                </label>
-                            </div>
-                        </div>
-
-                        <button class="btn btn-default btn-sm btn-primary">
-                            <i class="fa fa-pencil"></i> Apply</button>
-
-                    </form>
-
-                </div>
-            </div>
-
-            <!-- *** MENUS AND FILTERS END *** -->
-
-            <div class="banner">
-                <a href="#">
-                    <img src="../../../assets/img/banner.jpg" alt="sales 2014" class="img-responsive">
-                </a>
-            </div>
+        <div class="panel-heading">
+          <h3 class="panel-title">Brands
+            <a class="btn btn-xs btn-danger pull-right" href="#">
+              <i class="fa fa-times-circle"></i> Clear</a>
+          </h3>
         </div>
 
-        <div class="col-md-9">
-            <div class="box" *ngIf="category != ''">
-                <h1>{{category}}</h1>
-                <p>In our Ladies department we offer wide selection of the best products
-                    we have found and carefully selected worldwide.
-                </p>
+        <div class="panel-body">
+
+          <form>
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox">Armani (10)
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox">Versace (12)
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox">Carlo Bruni (15)
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox">Jack Honey (14)
+                </label>
+              </div>
             </div>
 
-            <div class="box info-bar">
-                <div class="row">
-                    <div class="col-sm-12 col-md-4 products-showing">
-                        Showing
+            <button class="btn btn-default btn-sm btn-primary">
+              <i class="fa fa-pencil"></i> Apply</button>
+
+          </form>
+
+        </div>
+      </div>
+
+      <div class="panel panel-default sidebar-menu">
+
+        <div class="panel-heading">
+          <h3 class="panel-title">Price
+            <a class="btn btn-xs btn-danger pull-right" href="#">
+              <i class="fa fa-times-circle"></i> Clear</a>
+          </h3>
+        </div>
+
+        <div class="panel-body">
+
+          <form>
+            <div class="form-group">
+              <div class="range-slider">
+                <input class="range-slider__range" type="range" value="100" min="0" max="500">
+                <span class="range-slider__value">0</span>
+              </div>
+            </div>
+
+            <button class="btn btn-default btn-sm btn-primary">
+              <i class="fa fa-pencil"></i> Apply</button>
+
+          </form>
+
+        </div>
+      </div>
+
+      <!-- *** MENUS AND FILTERS END *** -->
+
+      <div class="banner">
+        <a href="#">
+          <img src="../../../assets/img/banner.jpg" alt="sales 2014" class="img-responsive">
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="box" *ngIf="categoryName != ''">
+        <h1>{{categoryName}}</h1>
+        <p>In our Ladies department we offer wide selection of the best products we have found and carefully selected worldwide.
+        </p>
+      </div>
+
+      <div class="box info-bar">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 products-showing">
+            <!-- Showing
                         <strong>12</strong> of
-                        <strong>25</strong> products
-                    </div>
+                        <strong>{{products.length}}</strong> products -->
+          </div>
 
-                    <div class="col-sm-12 col-md-8  products-number-sort">
-                        <div class="row">
-                            <form class="form-inline">
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="products-number">
-                                        <strong>Show</strong>
-                                        <a href="#" class="btn btn-default btn-sm btn-primary">12</a>
-                                        <a href="#" class="btn btn-default btn-sm">24</a>
-                                        <a href="#" class="btn btn-default btn-sm">All</a> products
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="products-sort-by">
-                                        <strong>Sort by</strong>
-                                        <select name="sort-by" class="form-control">
-                                            <option>Price</option>
-                                            <option>Name</option>
-                                            <option>Sales first</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+          <div class="col-sm-12 col-md-8  products-number-sort">
+            <div class="row">
+              <form class="form-inline">
+                <div class="col-md-6 col-sm-6">
+                  <div class="products-number">
+                    <strong>Show</strong>
+                    <a href="javascript:void(0)" [class.btn-primary]="itemsPerPage === 12" class="btn btn-default btn-sm" (click)="setProductsNumber(12)">12</a>
+                    <a href="javascript:void(0)" [class.btn-primary]="itemsPerPage === 24" class="btn btn-default btn-sm" (click)="setProductsNumber(24)">24</a>
+                    <a href="javascript:void(0)" [class.btn-primary]="itemsPerPage === products.length" class="btn btn-default btn-sm" (click)="setProductsNumber(products.length)">All</a> products
+                  </div>
                 </div>
-            </div>
-
-            <div class="row products">
-                <div class="col-md-4 col-sm-6" *ngFor="let product of products">
-                    <div class="product">
-                        <div class="flip-container">
-                            <div class="flipper">
-                                <div class="front">
-                                    <a href="detail.html">
-                                        <img src="{{product.frontPicture}}" alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                                <div class="back">
-                                    <a href="detail.html">
-                                        <img src="{{product.backPicture}}" alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="detail.html" class="invisible">
-                            <img src="{{product.frontPicture}}" alt="" class="img-responsive">
-                        </a>
-                        <div class="text">
-                            <h3>
-                                <a href="detail.html">{{product.productName}}</a>
-                            </h3>
-                            <p class="price">{{product.unitPrice | currency:'VND':'symbol':'0.0-0'}}</p>
-                            <p class="buttons">
-                                <a href="detail.html" class="btn btn-default">View detail</a>
-                                <a href="basket.html" class="btn btn-primary">
-                                    <i class="fa fa-shopping-cart"></i>Add to cart</a>
-                            </p>
-                        </div>
-                        <!-- /.text -->
-                    </div>
-                    <!-- /.product -->
+                <div class="col-md-6 col-sm-6">
+                  <div class="products-sort-by">
+                    <strong>Sort by</strong>
+                    <select name="sort-by" ng-model="sortKey" class="form-control" (change)="setSortKeyValue($event)">
+                      <option value="unitPrice">Price</option>
+                      <option value="productName">Name</option>
+                      <!-- <option value="2">Sales first</option> -->
+                    </select>
+                  </div>
                 </div>
-
+              </form>
             </div>
-            <!-- /.products -->
+          </div>
+        </div>
+      </div>
 
-            <div class="pages">
+      <div class="row products">
+        <div class="col-md-4 col-sm-6" *ngFor="let product of products | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: products.length }">
+          <div class="product">
+            <div class="flip-container">
+              <div class="flipper">
+                <div class="front">
+                  <a href="detail.html">
+                    <img src="{{product.frontPicture}}" alt="" class="img-responsive">
+                  </a>
+                </div>
+                <div class="back">
+                  <a href="detail.html">
+                    <img src="{{product.backPicture}}" alt="" class="img-responsive">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <a href="detail.html" class="invisible">
+              <img src="{{product.frontPicture}}" alt="" class="img-responsive">
+            </a>
+            <div class="text">
+              <h3>
+                <a href="detail.html">{{product.productName}}</a>
+              </h3>
+              <p class="price">{{product.unitPrice | currency:'VND':'symbol':'0.0-0'}}</p>
+              <p class="buttons">
+                <a href="detail.html" class="btn btn-default">View detail</a>
+                <a href="basket.html" class="btn btn-primary">
+                  <i class="fa fa-shopping-cart"></i>Add to cart</a>
+              </p>
+            </div>
+            <!-- /.text -->
+          </div>
+          <!-- /.product -->
+        </div>
 
-                <p class="loadMore">
+      </div>
+      <!-- /.products -->
+
+      <div class="pages">
+
+        <!-- <p class="loadMore">
                     <a href="#" class="btn btn-primary btn-lg">
                         <i class="fa fa-chevron-down"></i> Load more</a>
-                </p>
+                </p> -->
 
-                <ul class="pagination">
-                    <li>
-                        <a href="#">&laquo;</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">4</a>
-                    </li>
-                    <li>
-                        <a href="#">5</a>
-                    </li>
-                    <li>
-                        <a href="#">&raquo;</a>
-                    </li>
-                </ul>
-            </div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
 
 
-        </div>
-        <!-- /.col-md-9 -->
     </div>
-    <!-- /.container -->
+    <!-- /.col-md-9 -->
+  </div>
+  <!-- /.container -->
 </div>
 <!-- /#content -->

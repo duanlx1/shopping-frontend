@@ -15,26 +15,52 @@ export class ListComponent implements OnInit {
   products = new Array<Product>();
   categories = new Array<Category>();
   categoryId = '';
+  categoryName = '';
+  p = 1;
+  itemsPerPage = 12;
+  sortKey = '';
+  sortValue = '';
+
   constructor(private cosmeticService: CosmeticService) { }
 
   ngOnInit() {
 
     // Get all product.
-    this.cosmeticService.getProducts(this.categoryId).subscribe(products => {
+    this.cosmeticService.getProducts(this.categoryId, this.sortKey, this.sortValue).then(products => {
       this.products = products;
     });
 
     // Get all categories.
-    this.cosmeticService.getCategory().subscribe(categories => {
+    this.cosmeticService.getCategory().then(categories => {
       this.categories = categories;
     });
 
   }
 
-  getProductsByCategory(category: string) {
-    this.cosmeticService.getProducts(category).subscribe(products => {
+  /**
+   * Filter products by category
+   * @param category categry
+   */
+  getProductsByCategory() {
+    this.cosmeticService.getProducts(this.categoryId, this.sortKey, this.sortValue).then(products => {
       this.products = products;
-    })
+    });
   }
-  
+
+  setProductsNumber(num: number) {
+    this.itemsPerPage = num;
+  }
+
+  setCategory(catogoryId: string, categoryName: string) {
+    this.categoryId = catogoryId;
+    this.categoryName = categoryName;
+    this.getProductsByCategory();
+  }
+
+  setSortKeyValue(e) {
+    this.sortKey = e.srcElement.value;
+    this.sortValue = '1';
+    this.getProductsByCategory();
+  }
+
 }

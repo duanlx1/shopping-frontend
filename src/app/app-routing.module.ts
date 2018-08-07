@@ -4,7 +4,7 @@ import { ListComponent } from './cosmetic/list/list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const routConfig: Routes = [
     { path: 'cosmetic/list', component: ListComponent },
@@ -16,6 +16,7 @@ const routConfig: Routes = [
 @NgModule({
     imports: [
         CommonModule,
+        NgxPaginationModule,
         RouterModule.forRoot(routConfig)
     ],
     declarations: [
