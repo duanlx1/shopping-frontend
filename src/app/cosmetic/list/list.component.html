@@ -45,18 +45,19 @@
 
         <div class="panel-heading">
           <h3 class="panel-title">Brands
-            <a class="btn btn-xs btn-danger pull-right" href="#">
+            <a class="btn btn-xs btn-danger pull-right" href="javascript:void(0);" (click)="clearSearchByBrands()">
               <i class="fa fa-times-circle"></i> Clear</a>
           </h3>
         </div>
 
         <div class="panel-body">
 
-          <form>
-            <div class="form-group" *ngFor="let brand of brands" >
+          <form [formGroup]="brandForm" (submit)="onSubmit()">
+            <div class="form-group" *ngFor="let brand of brands">
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" [value]="brand.brandId"/>{{brand.brandName}}
+                  <input type="checkbox" [value]="brand.brandId" (change)="onChange(brand.brandId, $event.target.checked)"
+                  />{{brand.brandName}}
                 </label>
               </div>
             </div>
@@ -150,34 +151,36 @@
           </div>
         </div>
       </div>
-
+      <ngx-spinner type="ball-spin">
+        <!-- <p style="font-size: 20px; color: white">Loading...</p> -->
+      </ngx-spinner>
       <div class="row products">
         <div class="col-md-4 col-sm-6" *ngFor="let product of products | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: products.length }">
           <div class="product">
             <div class="flip-container">
               <div class="flipper">
                 <div class="front">
-                  <a href="detail.html">
+                  <a href="cosmetic/detail/{{product._id.$oid}}">
                     <img src="{{product.frontPicture}}" alt="" class="img-responsive">
                   </a>
                 </div>
                 <div class="back">
-                  <a href="detail.html">
+                  <a href="cosmetic/detail/{{product._id.$oid}}">
                     <img src="{{product.backPicture}}" alt="" class="img-responsive">
                   </a>
                 </div>
               </div>
             </div>
-            <a href="detail.html" class="invisible">
+            <a href="cosmetic/detail/{{product._id.$oid}}" class="invisible">
               <img src="{{product.frontPicture}}" alt="" class="img-responsive">
             </a>
             <div class="text">
               <h3>
-                <a href="detail.html">{{product.productName}}</a>
+                <a href="cosmetic/detail/{{product._id.$oid}}">{{product.productName}}</a>
               </h3>
               <p class="price">{{product.unitPrice | currency:'VND':'symbol':'0.0-0'}}</p>
               <p class="buttons">
-                <a href="detail.html" class="btn btn-default">View detail</a>
+                <a href="cosmetic/detail/{{product._id.$oid}}" class="btn btn-default">View detail</a>
                 <a href="basket.html" class="btn btn-primary">
                   <i class="fa fa-shopping-cart"></i>Add to cart</a>
               </p>

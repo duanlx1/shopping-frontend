@@ -1,9 +1,10 @@
-import { Category } from './../common/object/catogory';
+import { Category } from './../common/object/category';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { Product } from '../common/object/product';
 import 'rxjs';
 import { Brand } from '../common/object/Brand';
+
 @Injectable()
 export class CosmeticService {
     private apiPath = 'https://api.mlab.com/api/1/databases/cosmetic/';
@@ -38,7 +39,7 @@ export class CosmeticService {
             // brands.forEach(element => {
                 
             // });
-            query = query.concat('{brandId:{$in:' + brands + ']}');
+            query = query.concat('{brandId:{$in:[' + brands + ']}}');
         }
 
         if (sortKey !== '' || sortValue !== '') {
@@ -88,7 +89,7 @@ export class CosmeticService {
         const collectionsPath = this.apiPath + 'collections/Products/' + id + '?' + this.apiKey;
         return this.http.get(collectionsPath)
             .toPromise()
-            .then(res => res.json() as Product[])
+            .then(res => res.json() as Product)
             .catch(this.handleError);
     }
 
