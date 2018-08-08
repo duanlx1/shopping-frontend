@@ -206,12 +206,12 @@
             <div id="mainImage">
               <img src="{{product.picture}}" alt="" class="img-responsive">
             </div>
-            <!-- <div *ngIf="{{product.discount}} > 0"> -->
+            <div *ngIf="product.discount < 0">
               <div class="ribbon sale">
                 <div class="theribbon">SALE</div>
                 <div class="ribbon-background"></div>
               </div>
-            <!-- </div> -->
+            </div>
             <!-- /.ribbon -->
 
             <div class="ribbon new">
