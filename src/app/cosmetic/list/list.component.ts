@@ -20,7 +20,7 @@ export class ListComponent implements OnInit {
   categoryId = '';
   categoryName = '';
   p = 1;
-  itemsPerPage = 12;
+  itemsPerPage = 6;
   sortKey = '';
   sortValue = '';
   brand;
