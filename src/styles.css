@@ -13,3 +13,7 @@
 .products-number .btn {
     margin: 2px;
 }
+
+.black-overlay {
+    position: fixed !important;
+}

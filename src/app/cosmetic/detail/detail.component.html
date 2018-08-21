@@ -102,7 +102,8 @@
           </div>
 
           <div class="panel-body">
-
+            <div>
+            </div>
             <form>
               <div class="form-group">
                 <div class="checkbox">
@@ -202,12 +203,13 @@
         <div class="row" id="productMain">
           <div class="col-sm-6">
             <div id="mainImage">
-              <img src="../../../assets/img/detailbig1.jpg" alt="" class="img-responsive">
+              <img src="{{product.picture}}" alt="" class="img-responsive">
             </div>
-
-            <div class="ribbon sale">
-              <div class="theribbon">SALE</div>
-              <div class="ribbon-background"></div>
+            <div *ngIf="product.discount < 0">
+              <div class="ribbon sale">
+                <div class="theribbon">SALE</div>
+                <div class="ribbon-background"></div>
+              </div>
             </div>
             <!-- /.ribbon -->
 
@@ -220,11 +222,11 @@
           </div>
           <div class="col-sm-6">
             <div class="box">
-              <h1 class="text-center">White Blouse Armani</h1>
+              <h1 class="text-center">{{product.productName}}</h1>
               <p class="goToDescription">
-                <a href="#details" class="scroll-to">Scroll to product details, material & care and sizing</a>
+                <a href="#details" class="scroll-to">Product description</a>
               </p>
-              <p class="price">$124.00</p>
+              <p class="price">{{product.unitPrice}}</p>
 
               <p class="text-center buttons">
                 <a href="basket.html" class="btn btn-primary">
@@ -238,18 +240,18 @@
 
             <div class="row" id="thumbs">
               <div class="col-xs-4">
-                <a href="../../../assets/img/detailbig1.jpg" class="thumb">
-                  <img src="../../../assets/img/detailsquare.jpg" alt="" class="img-responsive">
+                <a href="{{product.picture}}" class="thumb">
+                  <img src="{{product.picture}}" alt="" class="img-responsive">
                 </a>
               </div>
               <div class="col-xs-4">
-                <a href="../../../assets/img/detailbig2.jpg" class="thumb">
-                  <img src="../../../assets/img/detailsquare2.jpg" alt="" class="img-responsive">
+                <a href="{{product.frontPicture}}" class="thumb">
+                  <img src="{{product.frontPicture}}" alt="" class="img-responsive">
                 </a>
               </div>
               <div class="col-xs-4">
-                <a href="../../../assets/img/detailbig3.jpg" class="thumb">
-                  <img src="../../../assets/img/detailsquare3.jpg" alt="" class="img-responsive">
+                <a href="{{product.backPicture}}" class="thumb">
+                  <img src="{{product.backPicture}}" alt="" class="img-responsive">
                 </a>
               </div>
             </div>
