@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class CosmeticService {
-    private apiPath = "https://api.mlab.com/api/1/databases/cosmetic/";
-    private apiKey = "apiKey=3R_4OYNyEJdK0Y6snh0WSM5gtdi2arXD";
+    private apiPath = 'https://api.mlab.com/api/1/databases/cosmetic/';
+    private apiKey = 'apiKey=3R_4OYNyEJdK0Y6snh0WSM5gtdi2arXD';
     private httpOptions = {
         headers: new HttpHeaders({
             'Content-Type': 'application/json'
@@ -29,8 +29,8 @@ export class CosmeticService {
         // https://api.mlab.com/api/1/databases/my-db/collections/my-coll?q={"active": true}&apiKey=myAPIKey
         // https://api.mlab.com/api/1/databases/cosmetic/collections/Products?q={categoryId:2}&apiKey=3R_4OYNyEJdK0Y6snh0WSM5gtdi2arXD
         const collectionsPath = this.apiPath + 'collections/Products';
-        let query = ''
-        if (categoryId != "") {
+        let query = '';
+        if (categoryId !== '') {
             query = '{categoryId:' + categoryId + '}';
         }
 

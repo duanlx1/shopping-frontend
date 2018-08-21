@@ -34,7 +34,7 @@ export class ListComponent implements OnInit {
   getProductsByCategory(category: string) {
     this.cosmeticService.getProducts(category).subscribe(products => {
       this.products = products;
-    })
+    });
   }
-  
+
 }

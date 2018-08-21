@@ -16,10 +16,10 @@ export class DetailComponent implements OnInit {
   ngOnInit() {
   }
 
-  // getproductById(id: string) {
-  //   this.cosmeticService.getProductById(id).subscribe(product => {
-  //     this.product = product;
-  //   }); 
-  // }
+  getproductById(id: string) {
+    this.cosmeticService.getProductById(id).subscribe(product => {
+      this.product = product;
+    });
+  }
 
 }
