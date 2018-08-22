@@ -27,6 +27,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css",
               "src/styles.css"
             ],
             "scripts": [
@@ -37,7 +38,8 @@
               "src/assets/js/modernizr.js",
               "src/assets/js/bootstrap-hover-dropdown.js",
               "src/assets/js/owl.carousel.min.js",
-              "src/assets/js/front.js"
+              "src/assets/js/front.js",
+              "./node_modules/bootstrap-slider/dist/bootstrap-slider.min.js"
             ]
           },
           "configurations": {

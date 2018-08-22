@@ -1,19 +1,21 @@
 {
-	"Categories":[
+	"Categories": [
 		{
-			
-			"categoryID": 1,
-			"categoryName": "category Name"
+			"categoryId": 1,
+			"categoryName": "category Name",
+			"description": "Description for categories"
 		},
 		{
-			"categoryID": 2,
-			"categoryName": "category Name 2"
+			"categoryId": 2,
+			"categoryName": "category Name 2",
+			"description": "Description for categories"
 		}
 	],
-	"Products":[
+	"Products": [
 		{
-			"productID": 1,
-			"categoryID": 1,
+			"productId": 1,
+			"categoryId": 1,
+			"categoryName": "category Name 2",
 			"productName": "Product Name",
 			"productDescription": "Product Description",
 			"quantityPerUnit": 30,
@@ -24,13 +26,17 @@
 			"unitsInStock": 20,
 			"unitsOnOrder": 10,
 			"discountAvailable": "yes",
-			"picture": "d://img.jpg",
+			"pictures": [
+				"d://img.jpg",
+				"d://img1.jpg"
+			],
 			"ranking": 1,
 			"note": "Sản phẩm hết hàng"
 		},
 		{
-			"productID": 2,
-			"categoryID": 1,
+			"productId": 2,
+			"categoryId": 1,
+			"categoryName": "category Name 1",
 			"productName": "Product Name 2",
 			"productDescription": "Product Description",
 			"quantityPerUnit": 30,
@@ -41,61 +47,63 @@
 			"unitsInStock": 20,
 			"unitsOnOrder": 10,
 			"discountAvailable": "yes",
-			"picture": "d://img.jpg",
+			"pictures": [
+				"d://img.jpg",
+				"d://img1.jpg"
+			],
 			"ranking": 1,
 			"note": "Sản phẩm hết hàng"
 		}
 	],
-	"Orders":[
+	"Orders": [
 		{
-			
-			"orderID": 1,
-			"customerID": 1,
-			"paymentID": 1,
+			"orderId": 1,
+			"customerId": 1,
+			"paymentId": 1,
+			"paymentType": "Credit card",
 			"orderDate": "2018/08/01",
 			"shipDate": "2018/08/01",
 			"freightFee": 10000,
 			"totalPayment": 200000,
 			"paymentDate": "2018/08/01"
-			
 		},
 		{
-			"orderID": 2,
-			"customerID": 2,
-			"paymentID": 2,
+			"orderId": 2,
+			"customerId": 2,
+			"paymentId": 2,
+			"paymentType": "Credit card",
 			"orderDate": "2018/08/01",
 			"shipDate": "2018/08/01",
 			"freightFee": 10000,
 			"totalPayment": 200000,
 			"paymentDate": "2018/08/01"
-			
 		}
 	],
-	"OrderDetails":[
+	"OrderDetails": [
 		{
-			
-			"orderDetailID": 1,
-			"orderID": 1,
-			"productID": 1,
+			"orderDetailId": 1,
+			"orderId": 1,
+			"productId": 1,
+			"productName": "Product Name 2",
 			"price": 200000,
 			"quantity": 2,
 			"discount": 10,
 			"total": 400000
 		},
 		{
-			
-			"orderDetailID": 1,
-			"orderID": 1,
-			"productID": 1,
+			"orderDetailId": 1,
+			"orderId": 1,
+			"productId": 1,
+			"productName": "Product Name 2",
 			"price": 200000,
 			"quantity": 2,
 			"discount": 10,
 			"total": 400000
 		}
 	],
-	"Customers":[
+	"Customers": [
 		{
-			"customerID": 1,
+			"customerId": 1,
 			"fullName": "Nguyễn văn a",
 			"address": "Đô đốc lộc",
 			"ward": "Hòa Xuân",
@@ -125,14 +133,14 @@
 			"shipCity": "Đà nẵng"
 		}
 	],
-	"Payment":[
+	"Payment": [
 		{
-			"paymentID": 1,
+			"paymentId": 1,
 			"paymentType": "Thanh Toán lúc nhận hàng",
 			"allow": "yes"
 		},
 		{
-			"paymentID": 2,
+			"paymentId": 2,
 			"paymentType": "Credit card",
 			"allow": "yes"
 		},

@@ -1,15 +1,16 @@
+import { Category } from './../common/object/category';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Headers, Http } from '@angular/http';
 import { Product } from '../common/object/product';
-import { Category } from '../common/object/catogory';
-import { Observable } from 'rxjs';
+import 'rxjs';
+import { Brand } from '../common/object/Brand';
 
 @Injectable()
 export class CosmeticService {
-    private apiPath = "https://api.mlab.com/api/1/databases/cosmetic/";
-    private apiKey = "apiKey=3R_4OYNyEJdK0Y6snh0WSM5gtdi2arXD";
+    private apiPath = 'https://api.mlab.com/api/1/databases/cosmetic/';
+    private apiKey = 'apiKey=3R_4OYNyEJdK0Y6snh0WSM5gtdi2arXD';
     private httpOptions = {
-        headers: new HttpHeaders({
+        headers: new Headers({
             'Content-Type': 'application/json'
         })
     };
@@ -18,40 +19,86 @@ export class CosmeticService {
      * The constructer
      * @param http http client
      */
-    constructor(private http: HttpClient) { }
+    constructor(private http: Http) { }
 
     /**
      * Get product by category
      * @param categoryId category
      */
-    getProducts(categoryId: string): Observable<Product[]> {
+    getProducts(categoryId: string, sortKey: string, sortValue: string, brands: string[]): Promise<Product[]> {
 
-        // https://api.mlab.com/api/1/databases/my-db/collections/my-coll?q={"active": true}&apiKey=myAPIKey
-        // https://api.mlab.com/api/1/databases/cosmetic/collections/Products?q={categoryId:2}&apiKey=3R_4OYNyEJdK0Y6snh0WSM5gtdi2arXD
+        // s={"priority": 1, "difficulty": -1}
         const collectionsPath = this.apiPath + 'collections/Products';
-        let query = ''
-        if (categoryId != "") {
-            query = '{categoryId:' + categoryId + '}';
+        let query = '';
+        if (categoryId !== '') {
+            query = query.concat('{categoryId:' + categoryId + '}');
         }
 
-        return this.http.get<Product[]>(
-            collectionsPath + '?q=' + query + '&' + this.apiKey).pipe();
+        // {brandId:{$in:[1,3]}}
+        if (brands.length > 0) {
+            // brands.forEach(element => {
+            // });
+            query = query.concat('{brandId:{$in:[' + brands + ']}}');
+        }
+
+        if (sortKey !== '' || sortValue !== '') {
+            query = query.concat('&s=').concat('{' + sortKey + ':' + sortValue + '}');
+        } else {
+            // Sort default.
+            sortKey = 'productName';
+            sortValue = '1';
+            query = query.concat('&s=').concat('{' + sortKey + ':' + sortValue + '}');
+        }
+
+        return this.http.get(collectionsPath + '?q=' + query + '&' + this.apiKey)
+            .toPromise()
+            .then(res => res.json() as Product[])
+            .catch(this.handleError);
     }
 
     /**
      * Get all categories for left menu.
      */
-    getCategory(): Observable<Category[]> {
+    getCategory(): Promise<Category[]> {
         const collectionsPath = this.apiPath + 'collections/Categories';
 
-        return this.http.get<Category[]>(collectionsPath + '?' + this.apiKey).pipe();
+        return this.http.get(collectionsPath + '?' + this.apiKey)
+            .toPromise()
+            .then(res => res.json() as Category[])
+            .catch(this.handleError);
     }
 
-    getProductById(id: string): Observable<Product> {
+    /**
+     * Get all brands for left menu.
+     */
+    getBrands(): Promise<Brand[]> {
+        const collectionsPath = this.apiPath + 'collections/Brands';
+
+        return this.http.get(collectionsPath + '?' + this.apiKey)
+            .toPromise()
+            .then(res => res.json() as Brand[])
+            .catch(this.handleError);
+    }
+
+    /**
+     * Get products by ID
+     * @param id productId
+     */
+    getProductById(id: string): Promise<Product> {
         const collectionsPath = this.apiPath + 'collections/Products/' + id + '?' + this.apiKey;
-        return this.http.get<Product>(collectionsPath).pipe();
+        return this.http.get(collectionsPath)
+            .toPromise()
+            .then(res => res.json() as Product)
+            .catch(this.handleError);
     }
 
-
+    /**
+     * Handle error.
+     * @param error Error
+     */
+    private handleError(error: any): Promise<any> {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
+    }
 
 }
