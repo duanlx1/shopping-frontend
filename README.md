@@ -41,3 +41,5 @@ Now use the Angular CLI with the --base-href flag to build your project and set 
 Then it’s as simple as running angular-cli-ghpages. You can use the ngh shorthand:
   $ ngh --dir=dist/shopping
 
+duanlx
+
