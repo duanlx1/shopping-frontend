@@ -30,7 +30,7 @@
               "src/assets/css/util.min.css"
             ],
             "scripts": [
-              "src/assets/js",
+              "src/assets/js/slick-custom.js",
               "src/assets/vendor/slick/slick.js",
               "src/assets/vendor/slick/slick.min.js"
             ]
