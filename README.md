@@ -1,6 +1,6 @@
-# Shopping
+# ShoppingFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
 
 ## Development server
 
@@ -25,21 +25,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-## Pull override local
-1. git fetch --all
-2. git reset --hard origin/20180801_duanlx
-
-
-##Build and deploy on github
-First install the angular-cli-ghpages globally:
-  $ npm install -g angular-cli-ghpages
-
-Now use the Angular CLI with the --base-href flag to build your project and set the correct base href location:
-  $ ng build --prod --base-href "https://duanlx1.github.io/Cosmetic-Shopping/"
-
-Then it’s as simple as running angular-cli-ghpages. You can use the ngh shorthand:
-  $ ngh --dir=dist/shopping
-
-duanlx
-

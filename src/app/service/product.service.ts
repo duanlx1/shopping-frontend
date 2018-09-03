@@ -6,7 +6,7 @@ import 'rxjs';
 import { Brand } from '../common/object/Brand';
 
 @Injectable()
-export class CosmeticService {
+export class ProductService {
     private apiPath = 'https://api.mlab.com/api/1/databases/cosmetic/';
     private apiKey = 'apiKey=3R_4OYNyEJdK0Y6snh0WSM5gtdi2arXD';
     private httpOptions = {
@@ -37,6 +37,7 @@ export class CosmeticService {
         // {brandId:{$in:[1,3]}}
         if (brands.length > 0) {
             // brands.forEach(element => {
+                
             // });
             query = query.concat('{brandId:{$in:[' + brands + ']}}');
         }

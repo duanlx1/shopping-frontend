@@ -3,21 +3,17 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "shopping": {
+    "shopping-frontend": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {
-        "@schematics/angular:component": {
-          "styleext": "css"
-        }
-      },
+      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/shopping",
+            "outputPath": "dist/shopping-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,19 +23,16 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/main.css",
+              "src/assets/css/main.min.css",
+              "src/assets/css/util.css",
+              "src/assets/css/util.min.css"
             ],
             "scripts": [
-              "src/assets/js/jquery-1.11.0.min.js",
-              "src/assets/js/respond.min.js",
-              "src/assets/js/jquery.cookie.js",
-              "src/assets/js/waypoints.min.js",
-              "src/assets/js/modernizr.js",
-              "src/assets/js/bootstrap-hover-dropdown.js",
-              "src/assets/js/owl.carousel.min.js",
-              "src/assets/js/front.js",
-              "./node_modules/bootstrap-slider/dist/bootstrap-slider.min.js"
+              "src/assets/js",
+              "src/assets/vendor/slick/slick.js",
+              "src/assets/vendor/slick/slick.min.js"
             ]
           },
           "configurations": {
@@ -65,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "shopping:build"
+            "browserTarget": "shopping-frontend:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "shopping:build:production"
+              "browserTarget": "shopping-frontend:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "shopping:build"
+            "browserTarget": "shopping-frontend:build"
           }
         },
         "test": {
@@ -110,7 +103,7 @@
         }
       }
     },
-    "shopping-e2e": {
+    "shopping-frontend-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -118,11 +111,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "shopping:serve"
+            "devServerTarget": "shopping-frontend:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "shopping:serve:production"
+              "devServerTarget": "shopping-frontend:serve:production"
             }
           }
         },
@@ -138,5 +131,5 @@
       }
     }
   },
-  "defaultProject": "shopping"
+  "defaultProject": "shopping-frontend"
 }
